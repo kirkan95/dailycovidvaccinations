@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+</head>
+<body>
+
+    <canvas id="myChart" width="800" height="400"></canvas>
+    <script>
+
+    const xlabels = [];
+    const UsYNums = [];
+    const ChinaYNums = [];
+
+    chartIt();
+
+    async function chartIt() {
+        await getData();
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xlabels,
+                datasets: [{
+                    label: 'Daily U.S. Vaccinations',
+                    data: UsYNums,
+                    fill: false,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: "Daily China Vaccinations",
+                    data: ChinaYNums,
+                    fill: false,
+                    backgroundColor: 'rgba(0,10,255,0.2)',
+                    borderWidth: 1
+
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Daily Vaccinations Per Country'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            callback: function(value, index, values) {
+
+                                return value
+                            }
+                        }
+                    }]
+                }
+    }
+        });
+    } 
+
+        async function getData() {
+        const response = await fetch('country_vaccinations.csv');
+        const data = await response.text();
+
+        const UsTable = data.split('\n').slice(2217, 2264);
+        UsTable.forEach(row => {
+            const columns = row.split(',');
+            const date = columns[2];
+            xlabels.push(date);
+            const dailyVacc = columns[7];
+            UsYNums.push(dailyVacc);
+        });
+
+        const ChinaTable = data.split('\n').slice(379, 430);
+        ChinaTable.forEach(row => {
+            const columns = row.split(',');
+            const dailyVacc = columns[7];
+            ChinaYNums.push(dailyVacc);
+        })
+
+        }
+    </script>
+
+</body>
+</html>
