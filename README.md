@@ -3,10 +3,10 @@ A multi-line graph describing the number of daily COVID-19 vaccinations performe
 
 This was an exercise in creating infographics in JavaScript. I ended up using a library called Chart.js.
 
-Dataset from: https://www.kaggle.com/gpreda/covid-world-vaccination-progress
-Tutorials used: https://www.youtube.com/watch?v=tc8DU14qX6I&ab_channel=TheCodingTrain
-https://www.youtube.com/watch?v=RfMkdvN-23o&ab_channel=TheCodingTrain
-Chart.js: https://www.chartjs.org/
+- Dataset from: https://www.kaggle.com/gpreda/covid-world-vaccination-progress
+- Tutorials used: https://www.youtube.com/watch?v=tc8DU14qX6I&ab_channel=TheCodingTrain //
+https://www.youtube.com/watch?v=RfMkdvN-23o&ab_channel=TheCodingTrain // https://www.youtube.com/watch?v=5-ptp9tRApM&ab_channel=TheCodingTrain
+- Chart.js: https://www.chartjs.org/
 
 The skills I used for this project were:
 
