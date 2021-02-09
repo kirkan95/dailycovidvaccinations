@@ -1,7 +1,7 @@
 # dailycovidvaccinations
 A multi-line graph describing the number of daily COVID-19 vaccinations performed over time for the U.S. and China
 
-I wanted to ensure that I learned how to create infographics in JavaScript. I ended up using a library called Chart.js.
+This was an exercise in creating infographics in JavaScript. I ended up using a library called Chart.js.
 
 Dataset from: https://www.kaggle.com/gpreda/covid-world-vaccination-progress
 Tutorials used: https://www.youtube.com/watch?v=tc8DU14qX6I&ab_channel=TheCodingTrain
