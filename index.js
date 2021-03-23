@@ -1,26 +1,26 @@
-const Chinaxlabels = [];
-const ChinaUsYNums = [];
-const ChinaYNums = [];
+const UAExlabels = [];
+const UAEUsYNums = [];
+const UAEYNums = [];
 
-chartItChina();
+chartItUAE();
 
-async function chartItChina() {
-    await getData();
-    const ctx = document.getElementById('chinaChart').getContext('2d');
-    const chinaChart = new Chart(ctx, {
+async function chartItUAE() {
+    await getDataUAE();
+    const ctx = document.getElementById('UAEChart').getContext('2d');
+    const UAEChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: Chinaxlabels,
+            labels: UAExlabels,
             datasets: [{
-                label: 'Daily U.S. Vaccinations',
-                data: ChinaUsYNums,
+                label: 'U.S. Vaccinations per 100',
+                data: UAEUsYNums,
                 fill: false,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 1
             }, {
-                label: "Daily China Vaccinations",
-                data: ChinaYNums,
+                label: "UAE Vaccinations per 100",
+                data: UAEYNums,
                 fill: false,
                 backgroundColor: 'rgba(0,10,255,0.2)',
                 borderWidth: 1
@@ -32,7 +32,7 @@ async function chartItChina() {
             maintainAspectRatio: false,
             title: {
                 display: true,
-                text: 'Daily Vaccinations Per Country: U.S. vs China'
+                text: 'Total Vaccinations Per 100: U.S. vs UAE'
             },
             scales: {
 
@@ -49,55 +49,55 @@ async function chartItChina() {
     });
 } 
 
-    async function getData() {
+    async function getDataUAE() {
     const response = await fetch('country_vaccinations 2.csv');
     const data = await response.text();
 
-    const UsTable = data.split('\n').slice(7219, 7310);
-    UsTable.forEach(row => {
-        const columns = row.split(',');
-        const date = columns[2];
-        Chinaxlabels.push(date);
-        const dailyVacc = columns[7];
-        ChinaUsYNums.push(dailyVacc);
+    const UAEUsTable = data.split('\n').slice(7235, 7310);
+        UAEUsTable.forEach(row => {
+            const columns = row.split(',');
+            const date = columns[2];
+            UAExlabels.push(date);
+            const dailyVacc = columns[8];
+            UAEUsYNums.push(dailyVacc);
     });
 
-    const ChinaTable = data.split('\n').slice(1420, 1516);
-    ChinaTable.forEach(row => {
-        const columns = row.split(',');
-        const dailyVacc = columns[7];
-        ChinaYNums.push(dailyVacc);
+    const UAETable = data.split('\n').slice(7047, 7122);
+        UAETable.forEach(row => {
+            const columns = row.split(',');
+            const dailyVacc = columns[8];
+            UAEYNums.push(dailyVacc);
     })
 
     }
 
-// --------------------ITALY TIME----------------------
+// --------------------UK TIME----------------------
 
-const Italyxlabels = [];
-const ItalyUsYNums = [];
-const ItalyYNums = [];
+const UKxlabels = [];
+const UKUsYNums = [];
+const UKYNums = [];
 
-chartItItaly();
+chartItUK();
 
-async function chartItItaly() {
-    await getDataItaly();
-    const Italyctx = document.getElementById('italyChart').getContext('2d');
-    const italyChart = new Chart(Italyctx, {
+async function chartItUK() {
+    await getDataUK();
+    const ctx = document.getElementById('UKChart').getContext('2d');
+    const UKChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: Italyxlabels,
+            labels: UKxlabels,
             datasets: [{
-                label: 'Daily U.S. Vaccinations',
-                data: ItalyUsYNums,
+                label: 'U.S. Vaccinations per 100',
+                data: UKUsYNums,
                 fill: false,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 1
             }, {
-                label: "Daily Italy Vaccinations",
-                data: ItalyYNums,
+                label: "UK Vaccinations per 100",
+                data: UKYNums,
                 fill: false,
-                backgroundColor: 'rgba(105,210,105,0.2)',
+                backgroundColor: 'rgba(0,10,255,0.2)',
                 borderWidth: 1
 
             }]
@@ -107,9 +107,10 @@ async function chartItItaly() {
             maintainAspectRatio: false,
             title: {
                 display: true,
-                text: 'Daily Vaccinations Per Country: U.S. vs Italy'
+                text: 'Total Vaccinations Per 100: U.S. vs UK'
             },
             scales: {
+
                 yAxes: [{
                     ticks: {
                         callback: function(value, index, values) {
@@ -123,24 +124,99 @@ async function chartItItaly() {
     });
 } 
 
-    async function getDataItaly() {
+    async function getDataUK() {
     const response = await fetch('country_vaccinations 2.csv');
     const data = await response.text();
 
-    const ItalyUsTable = data.split('\n').slice(7219, 7310);
-    ItalyUsTable.forEach(row => {
+    const UKUsTable = data.split('\n').slice(7219, 7310);
+    UKUsTable.forEach(row => {
         const columns = row.split(',');
         const date = columns[2];
-        Italyxlabels.push(date);
-        const dailyVacc = columns[7];
-        ItalyUsYNums.push(dailyVacc);
+        UKxlabels.push(date);
+        const dailyVacc = columns[8];
+        UKUsYNums.push(dailyVacc);
     });
 
-    const ItalyTable = data.split('\n').slice(3537, 3621);
-    ItalyTable.forEach(row => {
+    const UKTable = data.split('\n').slice(7129, 7219);
+    UKTable.forEach(row => {
         const columns = row.split(',');
-        const dailyVacc = columns[7];
-        ItalyYNums.push(dailyVacc);
+        const dailyVacc = columns[8];
+        UKYNums.push(dailyVacc);
+    })
+
+    }
+
+    // --------------------INDIA TIME----------------------
+
+const Chilexlabels = [];
+const ChileUsYNums = [];
+const ChileYNums = [];
+
+chartItChile();
+
+async function chartItChile() {
+    await getDataChile();
+    const ctx = document.getElementById('ChileChart').getContext('2d');
+    const ChileChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Chilexlabels,
+            datasets: [{
+                label: 'U.S. Vaccinations per 100',
+                data: ChileUsYNums,
+                fill: false,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }, {
+                label: "Chile Vaccinations per 100",
+                data: ChileYNums,
+                fill: false,
+                backgroundColor: 'rgba(0,10,255,0.2)',
+                borderWidth: 1
+
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Total Vaccinations Per 100: U.S. vs Chile'
+            },
+            scales: {
+
+                yAxes: [{
+                    ticks: {
+                        callback: function(value, index, values) {
+
+                            return value
+                        }
+                    }
+                }]
+            }
+}
+    });
+} 
+
+    async function getDataChile() {
+    const response = await fetch('country_vaccinations 2.csv');
+    const data = await response.text();
+
+    const ChileUsTable = data.split('\n').slice(7223, 7310);
+    ChileUsTable.forEach(row => {
+        const columns = row.split(',');
+        const date = columns[2];
+        Chilexlabels.push(date);
+        const dailyVacc = columns[8];
+        ChileUsYNums.push(dailyVacc);
+    });
+
+    const ChileTable = data.split('\n').slice(1333, 1420);
+    ChileTable.forEach(row => {
+        const columns = row.split(',');
+        const dailyVacc = columns[8];
+        ChileYNums.push(dailyVacc);
     })
 
     }

@@ -9,61 +9,114 @@
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <script src="index.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <div id="titleBox">
         <h1>
-            How Does the U.S. Vaccination Rate Compare?
+            Outperforming the U.S.: COVID-19 Vaccines
         </h1>
-        <p>
-            China, Italy and Afghanistan: three countries with vastly different cultures and coronavirus containment strategies. How did these three nations' efforts to vaccinate their population compare to the U.S.'?
+    </div>
+    <div class= "container" id="subhead">
+        <div class = "floating-subhead" data-aos="fade-up" data-aos-anchor-placement="center-center">
+            Population size,
+        </div>
+        <div class = "floating-subhead" data-aos="fade-up" data-aos-anchor-placement="center-center">            
+            GDP,
+        </div>
+        <div class = "floating-subhead" data-aos="fade-up" data-aos-anchor-placement="center-center">            
+            geography...
+        </div>
+        <p data-aos="fade-up" data-aos-anchor-placement="center-center">
+            None of these are strict indicators of a country's vaccine distribution efficiency.
+        </p>
+        <p data-aos="fade-up" data-aos-anchor-placement="center-center">
+            The following countries have higher vaccine rates than the U.S.,
+            which has a rate of about <b>38 per 100 people</b>. 
         </p>
     </div>
 
-    <div class="countryIntro" data-aos="fade-up">
+    <p class = "sticky" data-aos="fade-up" data-aos-anchor-placement="center-center">
+        U.S. vaccines: <b>121.4 million</b>, population: <b>328.2 million</b>,  GDP: <b>$21.43 trillion.</b>
+    </p>
+
+    <div class="countryIntro" data-aos="fade-up" data-aos-anchor-placement="center-center">
         <h1>
-            China
+            United Arab Emirates
         </h1>
-        <div class="container-fluid">
+        <div class="container-fluid infobox">
             <div class="row">
               <div class="col-sm">
                 has administered </br>
-                <b>75 million vaccines</b>
+                <b>7.2 million vaccines</b>
               </div>
               <div class="col-sm">
                 population </br>
-                <b>1.4 billion</b>
+                <b>9.7 million</b>
+                </div>
+              <div class="col-sm">
+                GDP </br>
+                <b>$421.1 billion</b>
               </div>
             </div>
-          </div>
+         </div>
     </div>
     <div class="container chart-container" data-aos="fade-up">
-        <canvas id="chinaChart"></canvas>
+        <canvas id="UAEChart"></canvas>
     </div>
 
     <div class="countryIntro" data-aos="fade-up">
         <h1>
-            Italy
+            United Kingdom
         </h1>
-        <div class="container-fluid">
+        <div class="container-fluid infobox">
             <div class="row">
               <div class="col-sm">
                 has administered </br>
-                <b>8 million vaccines</b>
+                <b>28.9 million vaccines</b>
               </div>
               <div class="col-sm">
                 population </br>
-                <b>60.36 million</b>
+                <b>66.7 million</b>
+              </div>
+              <div class="col-sm">
+                GDP </br>
+                <b>$2.8 trillion</b>
               </div>
             </div>
           </div>
     </div>
     <div class="container chart-container" data-aos="fade-up">
-        <canvas id="italyChart"></canvas>
+        <canvas id="UKChart"></canvas>
     </div>
    
+    <div class="countryIntro" data-aos="fade-up">
+        <h1>
+            Chile
+        </h1>
+        <div class="container-fluid infobox">
+            <div class="row">
+              <div class="col-sm">
+                has administered </br>
+                <b>8.4 million vaccines</b>
+              </div>
+              <div class="col-sm">
+                population </br>
+                <b>18.9 million</b>
+              </div>
+              <div class="col-sm">
+                GDP </br>
+                <b>$282.3 billion</b>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="container chart-container" data-aos="fade-up">
+        <canvas id="ChileChart"></canvas>
+    </div>
    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
