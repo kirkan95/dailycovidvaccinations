@@ -33,8 +33,7 @@ async function chartItUAE() {
             title: {
                 display: true,
                 text: 'Total Vaccinations Per 100: U.S. vs UAE'
-            },
-            scales: {
+            },            scales: {
 
                 yAxes: [{
                     ticks: {
@@ -146,7 +145,7 @@ async function chartItUK() {
 
     }
 
-    // --------------------INDIA TIME----------------------
+    // --------------------CHILE TIME----------------------
 
 const Chilexlabels = [];
 const ChileUsYNums = [];
